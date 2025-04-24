@@ -7,6 +7,7 @@ import Noti from "./Notifications";
 function App() {
   return (
     <div className="App">
+      <h1>My Dashboard</h1>
       <Quote />
       <Todo />
       <Deadlines />

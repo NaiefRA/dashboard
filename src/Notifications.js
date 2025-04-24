@@ -1,7 +1,5 @@
-import { useState } from "react";
-
 const Noti = () => {
-  const [notifications, setNotifications] = useState([
+  const notifications = [
     {
       title: "Assignment due tomorrow",
       message: "PH Assignment due in 1 day",
@@ -14,7 +12,7 @@ const Noti = () => {
       title: "idk",
       message: "insert notification here",
     },
-  ]);
+  ];
 
   return (
     <div className="container notification">

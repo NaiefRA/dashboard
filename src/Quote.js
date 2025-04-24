@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
-
 const Quote = () => {
-  const [quote, setQuote] = useState({
+  const quote = {
     text: "If my mind can conceive it, if my heart can believe it, then I can achieve it.",
     author: "Muhammad Ali",
-  });
+  };
   return (
     <div className="quote container">
       <h2>Quote of the Day</h2>

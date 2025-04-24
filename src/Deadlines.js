@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const Deadlines = ({ progress }) => {
   const [deadlines, setDeadlines] = useState([
@@ -16,9 +16,9 @@ const Deadlines = ({ progress }) => {
     },
   ]);
 
-  const updateTimeLeft = () => {
-    setDeadlines(
-      deadlines.map((deadline) => {
+  const updateTimeLeft = useCallback(() => {
+    setDeadlines((prevDeadlines) =>
+      prevDeadlines.map((deadline) => {
         const now = new Date();
         const due = new Date(deadline.dueDate);
 
@@ -34,7 +34,7 @@ const Deadlines = ({ progress }) => {
         return { ...deadline, timeLeft: timeLeftNew };
       })
     );
-  };
+  }, []);
 
   useEffect(() => {
     updateTimeLeft();
@@ -44,7 +44,8 @@ const Deadlines = ({ progress }) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [updateTimeLeft]);
+
   return (
     <div className="container dead">
       <h2>Deadlines</h2>

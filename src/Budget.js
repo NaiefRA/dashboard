@@ -2,7 +2,6 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import { valueOrDefault } from "chart.js/helpers";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -47,12 +46,14 @@ const BudgetChart = () => {
       className="container budget"
       style={{ width: "400px", margin: "0 auto" }}
     >
-      <h2>
+      <h2>Expenses Tracker</h2>
+      <h3>
+        {" "}
         Total Spent:{" ₹"}
         {dataValues.reduce((v, s) => {
           return v + s;
         })}
-      </h2>
+      </h3>
       <Doughnut className="chart" data={data} options={chartOptions} />
     </div>
   );

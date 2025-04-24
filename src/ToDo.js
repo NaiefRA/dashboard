@@ -9,7 +9,7 @@ const Todo = () => {
   const [newDo, setNewDo] = useState("");
 
   const handleAdd = () => {
-    if (newDo !== "") {
+    if (newDo.trim() !== "") {
       const newTodo = [{ text: newDo, checked: false }, ...todoList];
       setTodoList(newTodo);
       setNewDo("");
@@ -31,69 +31,49 @@ const Todo = () => {
   return (
     <div className="container todo">
       <h2>To Do</h2>
-      <div className="row">
+      <div className="todo-form">
         <input
           value={newDo}
           type="text"
-          className="input-box"
+          className="todo-input"
           placeholder="Add a ToDo"
-          onChange={(e) => {
-            setNewDo(e.target.value);
-          }}
+          onChange={(e) => setNewDo(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               handleAdd();
             }
           }}
         />
-        <button onClick={handleAdd}>Add</button>
+        <button className="todo-button" onClick={handleAdd}>
+          Add
+        </button>
       </div>
-      {todoList.map((todo, i) => {
-        return (
-          <div
-            onClick={() => {
-              handleCheck(i);
+
+      {todoList.map((todo, i) => (
+        <div
+          key={i}
+          className={`todo-item ${todo.checked ? "completed" : ""}`}
+          onClick={() => handleCheck(i)}
+        >
+          <label>
+            <input
+              type="checkbox"
+              checked={todo.checked}
+              onChange={() => handleCheck(i)}
+            />
+            {todo.text}
+          </label>
+          <button
+            className="delete-button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDelete(i);
             }}
-            className="todo-item"
-            style={{
-              color: "#222222",
-              display: "flex",
-              justifyContent: "space-between",
-              margin: "5px",
-              border: "2px grey solid",
-              borderRadius: "20px",
-              backgroundColor: todo.checked
-                ? "rgb(110, 110, 110)"
-                : "lightgrey",
-              padding: "8px",
-              userSelect: "none",
-            }}
-            key={i}
           >
-            <div>
-              <label className={todo.checked ? "checked" : ""}>
-                {todo.text}
-              </label>
-            </div>
-            <button
-              style={{
-                backgroundColor: todo.checked
-                  ? "rgb(110, 110, 110)"
-                  : "lightgrey",
-                border: "none",
-                fontSize: "1rem",
-              }}
-              className="del"
-              onClick={(e) => {
-                e.stopPropagation();
-                handleDelete(i);
-              }}
-            >
-              {"\u00D7"}
-            </button>
-          </div>
-        );
-      })}
+            ×
+          </button>
+        </div>
+      ))}
     </div>
   );
 };

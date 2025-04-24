@@ -3,19 +3,13 @@ import { useEffect, useState } from "react";
 const Deadlines = ({ progress }) => {
   const [deadlines, setDeadlines] = useState([
     {
-      title: "idk",
-      dueDate: "2025-04-27T23:59:00",
+      title: "Something",
+      dueDate: "2025-04-27T23:51:41",
       progress: 80,
       timeLeft: { days: 0, hours: 0, mins: 0, secs: 0 },
     },
     {
-      title: "idk2",
-      dueDate: "2025-05-30T23:59:00",
-      progress: 50,
-      timeLeft: { days: 0, hours: 0, mins: 0, secs: 0 },
-    },
-    {
-      title: "idk3",
+      title: "Something else",
       dueDate: "2025-04-24T23:59:00",
       progress: 10,
       timeLeft: { days: 0, hours: 0, mins: 0, secs: 0 },

@@ -1,13 +1,18 @@
 import Todo from "./ToDo";
 import Deadlines from "./Deadlines";
 import BudgetChart from "./Budget";
-
+import Habit from "./Habits";
+import Quote from "./Quote";
+import Noti from "./Notifications";
 function App() {
   return (
     <div className="App">
+      <Quote />
       <Todo />
-      <Deadlines title="idk" dueDate="2025-04-27T23:59:00" progress="80" />
+      <Deadlines />
       <BudgetChart />
+      <Habit />
+      <Noti />
     </div>
   );
 }

@@ -10,7 +10,7 @@ const Deadlines = ({ progress }) => {
     },
     {
       title: "Something else",
-      dueDate: "2025-04-24T23:59:00",
+      dueDate: "2025-04-26T23:59:00",
       progress: 10,
       timeLeft: { days: 0, hours: 0, mins: 0, secs: 0 },
     },
@@ -62,7 +62,7 @@ const Deadlines = ({ progress }) => {
               </div>
             </div>
             <div className="date">
-              {`due in ${deadline.timeLeft.days} days, ${deadline.timeLeft.hours} hours, ${deadline.timeLeft.mins} minutes, ${deadline.timeLeft.secs} seconds`}
+              {`${deadline.timeLeft.days} days, ${deadline.timeLeft.hours} hrs, ${deadline.timeLeft.mins} mins, ${deadline.timeLeft.secs} secs left`}
             </div>
           </div>
         );

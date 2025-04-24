@@ -46,6 +46,10 @@ h2 {
 }
 
 /* Todo List Styles */
+.todo {
+  max-height: 360px;
+}
+
 .todo-form {
   display: flex;
   margin-bottom: 15px;

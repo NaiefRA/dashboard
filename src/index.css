@@ -145,3 +145,12 @@ input[type="checkbox"] {
   font-size: 0.9rem;
   padding: 0.5rem;
 }
+
+/* Budget */
+
+.budget {
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
